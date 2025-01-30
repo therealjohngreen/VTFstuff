@@ -1,3 +1,4 @@
+# a list of things I (mrjohngreen) have done for diverge
 ## luapack for linux 64 bit
 ###### status: untested and unused 😪
 - binary module in c++
