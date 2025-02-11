@@ -54,7 +54,7 @@ its included in NVIDIA DDS Utilities 8.31 but the download link is gone, I can o
 - [discord bot slash command](https://i.imgur.com/knj1g3Q.png), send the dupe .json and it sends back the 7zipped model
 - not done:
   - nocollided props (ez)
-  - support the dupe as a .txt instead of .json
+  - support the dupe as a .txt instead of .json (80% done in js)
 ## discord bot
 ###### status: 95% done, database untested, wrong channel ids
 - discordjs, full rewrite
@@ -71,3 +71,24 @@ its included in NVIDIA DDS Utilities 8.31 but the download link is gone, I can o
 - things to do
   - Ive rewritten the addon, networking is optimized and now you have a power gauge instead of physically pushing the ball with the cue, but the physics between the balls and the table behave differently in my addon, I'll try to directly add this into the original addon and test it there
   - replace usmg
+## holylib for linux 64 bit
+###### status: doesnt work
+- binary module in c++
+- fixes
+  - someone [doesnt want to use the stl max](https://github.com/danielga/sourcesdk-minimal/blame/0b3281f3bdd4048c35c45a179a5c414c1ef4dfb0/public/studio.h#L1776) but [forgot to correctly type their max function](https://github.com/danielga/sourcesdk-minimal/blob/0b3281f3bdd4048c35c45a179a5c414c1ef4dfb0/public/tier0/basetypes.h#L185-L191) 
+  - a week ago he changed these functions so [they return 64 bit unsigned int](https://github.com/RaphaelIT7/gmod-holylib/blame/8b4b56fa5e899fc161ee12bfc7bfe370f06beefd/source/sourcesdk/filesystem_things.h#L483-L486), he says its because "gmod's filesystem changed", but these functions [havent changed in 9 years](https://wiki.facepunch.com/gmod/Update_Preview_Changelog#:~:text=Applied%20potential%20filesystem%20optimization%20suggested%20by%20the%20community), maybe hes refering to [this](https://wiki.facepunch.com/gmod/Update_Preview_Changelog#:~:text=Applied%20potential%20filesystem%20optimization%20suggested%20by%20the%20community), so I edited it to return 32bit like gmod does, but this might break when this new update comes out
+  - this...  
+  ![this](https://i.imgur.com/J3XRkBM.png)
+  - commented [this](https://github.com/RaphaelIT7/gmod-holylib/commit/4e2be8c64fb4fecb0f541e8da741002549c1a090#diff-38f68bc3a4c9a69e07f9aaf76b0e0f9e77360c9d75097af3e8642379878decc3R230) out
+
+
+
+- [source code](https://github.com/RaphaelIT7/gmod-holylib)
+
+## simfphys optimization
+###### status: done ✔
+- stopped networking of `gmod_sent_vehicle_fphysics_base` when it's outside of your pvs, this is mostly a clientside fps optimization because the player stops rendering the car model
+- how to optimize networking? stop the networking of `gmod_sent_vehicle_fphysics_wheel` when outside of the pvs, the TRANSMIT_ALWAYS state is forced by either:
+  - the rope/elastic constraints, [simfphys](https://github.com/CosmicStar98/simfphys-backup/blob/9903f5f4fb39633ec0666155fc575aa73c6d4939/simfphys_base/lua/entities/gmod_sent_vehicle_fphysics_base/spawn.lua#L689-L712) 
+  - the particles, [simfphys](https://github.com/CosmicStar98/simfphys-backup/blob/9903f5f4fb39633ec0666155fc575aa73c6d4939/simfphys_base/lua/entities/gmod_sent_vehicle_fphysics_wheel.lua#L48-L72), [source engine](https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/mp/src/game/server/particle_system.cpp#L185-L191)  
+  ###### note that the transmit state of an entity needs to be the same as their parent/children
