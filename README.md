@@ -91,14 +91,14 @@ its included in NVIDIA DDS Utilities 8.31 but the download link is gone, I can o
 - [archive](https://i.imgur.com/coTPDUv.png)
 ###### update: [it broke](https://i.imgur.com/anGPO1m.jpg)
 - the reason probably has to do with [this](https://i.imgur.com/h5nkogw.png)
-- this problem never happens on my end
-![this](https://i.imgur.com/utPeBZE.mp4)
+- this problem never happens on my end  
+https://github.com/user-attachments/assets/84dd79f4-676f-4609-bb9e-44e4b5056e96
 ## shift click item transfer
 ###### status: done ✔
 - lua
 - dragging the item is annoying, now you can shift click to transfer the item like in minecraft
-- it kinda simulates prediction so that even people with high ping can send a bunch of items in quick succession
-![this](https://i.imgur.com/0EXcnXk.mp4)
+- it kinda simulates prediction so that even people with high ping can send a bunch of items in quick succession  
+https://github.com/user-attachments/assets/b1771fce-c4fe-4782-b35b-d42ef555310e
 ## sounds going through walls
 ###### status: done ✔
 - lua
@@ -128,14 +128,12 @@ its included in NVIDIA DDS Utilities 8.31 but the download link is gone, I can o
 ###### status: done ✔
 - lua and c++
 - coming soon
-
 ## items drop through the floor
 ###### status: done ✔
 - lua
 - the function `getItemDropPos()` is used to determine where the dropped item should appear
-- when looking at a certain angle, that drop position will be exactly at the floor's height, meaning the dropped item will be halfway into the floor
-![this](https://i.imgur.com/LFkHWn4.mp4)
-
+- when looking at a certain angle, that drop position will be exactly at the floor's height, meaning the dropped item will be halfway into the floor  
+https://github.com/user-attachments/assets/1f6335c8-5512-4bf0-850c-c8a31eef6b5d
 ## below is a list of knowledge with which I have endowed Pendred
 - [directly modifying default parameters of blender addons](https://i.imgur.com/Bo5utyJ.png)
 - [hammer cool trick](https://i.imgur.com/S7bClgv.gif)
