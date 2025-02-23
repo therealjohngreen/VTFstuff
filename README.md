@@ -80,15 +80,63 @@ its included in NVIDIA DDS Utilities 8.31 but the download link is gone, I can o
   - [this](https://i.imgur.com/J3XRkBM.png)...  
   - commented [this](https://github.com/RaphaelIT7/gmod-holylib/commit/4e2be8c64fb4fecb0f541e8da741002549c1a090#diff-38f68bc3a4c9a69e07f9aaf76b0e0f9e77360c9d75097af3e8642379878decc3R230) out
 - [source code](https://github.com/RaphaelIT7/gmod-holylib)
-
 ## simfphys optimization
-###### status: done ✔
+###### status: broke ❌
+- lua
 - stopped networking of `gmod_sent_vehicle_fphysics_base` when it's outside of your pvs, this is mostly a clientside fps optimization because the player stops rendering the car model
 - how to optimize networking? stop the networking of `gmod_sent_vehicle_fphysics_wheel` when outside of the pvs, the TRANSMIT_ALWAYS state is forced by either:
   - the rope/elastic constraints, [simfphys](https://github.com/CosmicStar98/simfphys-backup/blob/9903f5f4fb39633ec0666155fc575aa73c6d4939/simfphys_base/lua/entities/gmod_sent_vehicle_fphysics_base/spawn.lua#L689-L712), [source engine](https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/mp/src/game/server/rope.cpp#L129-L150)
   - the particles, [simfphys](https://github.com/CosmicStar98/simfphys-backup/blob/9903f5f4fb39633ec0666155fc575aa73c6d4939/simfphys_base/lua/entities/gmod_sent_vehicle_fphysics_wheel.lua#L48-L72), [source engine](https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/mp/src/game/server/particle_system.cpp#L185-L191)  
   ###### note that the transmit state of an entity needs to be the same as their parent/children
 - [archive](https://i.imgur.com/coTPDUv.png)
+###### update: [it broke](https://i.imgur.com/anGPO1m.jpg)
+- the reason probably has to do with [this](https://i.imgur.com/h5nkogw.png)
+- this problem never happens on my end
+<video controls src="https://i.imgur.com/utPeBZE.mp4" title="this"></video>
+
+## shift click item transfer
+###### status: done ✔
+- lua
+- dragging the item is annoying, now you can shift click to transfer the item like in minecraft
+- it kinda simulates prediction so that even people with high ping can send a bunch of items in quick succession
+<video controls src="https://i.imgur.com/0EXcnXk.mp4" title="this"></video>
+
+## sounds going through walls
+###### status: done ✔
+- lua
+- you could hear people through walls in some places
+- the lua script draws a line in front of you that indicates if sound can pass through
+- also shows content/surface flags of what it touches
+- shows XY coordinates in the middle of the screen so that we know where is every screenshot from
+- turns out some [doorframes](https://i.imgur.com/MAoK6Z2.png) were not physically solid
+- and map geometry is the only thing that blocks sound (unless it has the translucent flag)
+![this](https://i.imgur.com/6SETiqb.png)
+## blackjack - finding cheaters
+###### status: done ✔
+- lua
+- some people have an advantage at the blackjack tables, they managed to completely empty some tables
+- this script can observe blackjack games from far away, as long as the table is in your pvs
+- net messages are overridden to ignore distance checks (yes they are clientside) and keep the hands value on the screen even after the game is done, so I have the time to look at them
+- it shows the countdown before the game starts
+- it counts win/loss/tie
+- it shows who's in the casino  
+![this](https://i.imgur.com/iMafsLy.png)
+## blackjack - infinite split
+###### status: havent started yet
+- lua
+- people have the ability to split infinitely
+- so the solution here is to write some server side code to limit it to 3 times maximum
+## blackjack - ...
+###### status: done ✔
+- lua and c++
+- coming soon
+
+## items drop through the floor
+###### status: done ✔
+- lua
+- the function `getItemDropPos()` is used to determine where the dropped item should appear
+- when looking at a certain angle, that drop position will be exactly at the floor's height, meaning the dropped item will be halfway into the floor
+<video controls src="https://i.imgur.com/LFkHWn4.mp4" title="this"></video>
 
 ## below is a list of knowledge with which I have endowed Pendred
 - [directly modifying default parameters of blender addons](https://i.imgur.com/Bo5utyJ.png)
