@@ -92,15 +92,13 @@ its included in NVIDIA DDS Utilities 8.31 but the download link is gone, I can o
 ###### update: [it broke](https://i.imgur.com/anGPO1m.jpg)
 - the reason probably has to do with [this](https://i.imgur.com/h5nkogw.png)
 - this problem never happens on my end
-<video controls src="https://i.imgur.com/utPeBZE.mp4" title="this"></video>
-
+![this](https://i.imgur.com/utPeBZE.mp4)
 ## shift click item transfer
 ###### status: done ✔
 - lua
 - dragging the item is annoying, now you can shift click to transfer the item like in minecraft
 - it kinda simulates prediction so that even people with high ping can send a bunch of items in quick succession
-<video controls src="https://i.imgur.com/0EXcnXk.mp4" title="this"></video>
-
+![this](https://i.imgur.com/0EXcnXk.mp4)
 ## sounds going through walls
 ###### status: done ✔
 - lua
@@ -136,7 +134,7 @@ its included in NVIDIA DDS Utilities 8.31 but the download link is gone, I can o
 - lua
 - the function `getItemDropPos()` is used to determine where the dropped item should appear
 - when looking at a certain angle, that drop position will be exactly at the floor's height, meaning the dropped item will be halfway into the floor
-<video controls src="https://i.imgur.com/LFkHWn4.mp4" title="this"></video>
+![this](https://i.imgur.com/LFkHWn4.mp4)
 
 ## below is a list of knowledge with which I have endowed Pendred
 - [directly modifying default parameters of blender addons](https://i.imgur.com/Bo5utyJ.png)
