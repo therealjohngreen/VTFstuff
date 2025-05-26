@@ -45,18 +45,21 @@ its included in NVIDIA DDS Utilities 8.31 but the download link is gone, I can o
 ![this](https://i.imgur.com/tT0pjOP.png)
 ## dupe combine
 ###### status: done ✔
-- python, bpy
+- nodejs, sqlite, python, bpy
 - code not released
 - less drawcalls, doubles fps, [sauce](https://www.mapcore.org/articles/tutorials/static-prop-combine-in-csgo-r111/)
 - 150 vs 1 entity
 - windows only (no linux studiomdl)
 - auto creates needed vmts
 - [discord bot slash command](https://i.imgur.com/knj1g3Q.png), send the dupe .json and it sends back the 7zipped model
-- not done:
-  - nocollided props (ez)
-  - support the dupe as a .txt instead of .json (80% done in js)
+- can do multiple dupes at the same time
+- can directly read dupe .txt files (lmza decompress and parses the data)
+- quick model file lookup to avoid decompressing .gma every time
+  - fetch current content addons IDs
+  - find and read .gma
+  - index models and their offset and size in a sqlite database
 ## discord bot
-###### status: 95% done, database untested, wrong channel ids
+###### status: done, currently used
 - discordjs, full rewrite
 - [source code](https://github.com/Pendred/divergebot-new)
 - very VERY documented
@@ -64,6 +67,7 @@ its included in NVIDIA DDS Utilities 8.31 but the download link is gone, I can o
   - 2x faster [source](https://i.imgur.com/bCwqrwo.png)
   - ez to use (u can await a query)
 - [atomic operations for auctions](https://i.imgur.com/bGZ8mPg.png)
+- ticket system
 ## billiard
 ###### status: either very close to finished, or not at all
 - fixed textures  
@@ -100,6 +104,8 @@ https://github.com/user-attachments/assets/b2e1c439-b9fc-4f42-b8ac-c852fa09423d
 - lua
 - dragging the item is annoying, now you can shift click to transfer the item like in minecraft
 - it kinda simulates prediction so that even people with high ping can send a bunch of items in quick succession  
+- works with any item size  
+- ctrl click to move multiple items  
 
 https://github.com/user-attachments/assets/860071d7-e989-4ee8-a157-dfc1c462c6bd
 
@@ -124,19 +130,20 @@ https://github.com/user-attachments/assets/860071d7-e989-4ee8-a157-dfc1c462c6bd
 - it shows who's in the casino  
 ![this](https://i.imgur.com/iMafsLy.png)
 ## blackjack - infinite split
-###### status: havent started yet
+###### done but not tested
 - lua
 - people have the ability to split infinitely
-- so the solution here is to write some server side code to limit it to 3 times maximum
+- so the solution here is to write [some server side code](https://discord.com/channels/619968869125062656/1340039027583090828/1344431966107205652) to limit it to 3 times maximum
 ## blackjack - ...
 ###### status: done ✔
 - lua and c++
-- coming soon
+- classified
 ## items drop through the floor
 ###### status: done ✔
 - lua
 - the function `getItemDropPos()` is used to determine where the dropped item should appear
-- when looking at a certain angle, that drop position will be exactly at the floor's height, meaning the dropped item will be halfway into the floor  
+- when looking at a certain angle, that drop position will be exactly at the floor's height, meaning the dropped item will be halfway into the floor
+- displacements with a power of 4 also didnt help
 
 https://github.com/user-attachments/assets/e20efc74-a23a-4867-8f9e-2d02c0c9d31a
 
