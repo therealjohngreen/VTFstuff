@@ -126,6 +126,12 @@ https://github.com/user-attachments/assets/860071d7-e989-4ee8-a157-dfc1c462c6bd
 
 ![this](https://i.imgur.com/6SETiqb.png)  
 
+## john green coin
+- nodejs, sqlite
+- stock exchange on a discord bot, only tradable thing was the john green coin  
+
+![this](https://i.imgur.com/gux3oMF.png)  
+
 ## blackjack part 1 - finding cheaters
 ###### status: done ✔
 - lua
@@ -202,6 +208,18 @@ there are many other problems
 - the solution is something similar to the subtick system in cs2, but it's the other players who are replaying the sounds at the right time (with a 1s delay)
 - made from scratch so i kept it simple, meaning this doesnt have the "teleport bug", annoying interface, sitting animation, etc.
 - doesnt broadcast net messages to everyone
+
+## small bug fixes
+> chat color bug  
+> ![this](https://i.imgur.com/BPihnKD.png)  
+> it modifies a reference of the color instead of a copy  
+> ![this](https://i.imgur.com/4yD5ygm.png)  
+
+> flying blackjack tables  
+> ![this](https://i.imgur.com/J0ldIJq.png)  
+> i guess DropToFloor() doesnt work anymore or something  
+> ![this](https://i.imgur.com/uwARjxW.png)
+
 
 ## there wont be anything new for a while
 ![this](https://i.imgur.com/XJ6lDJi.png)  
