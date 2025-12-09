@@ -1,4 +1,4 @@
-// here is some shit i dont want to push on the repo
+// and now its gone
 
 #include <iostream>
 #include <unordered_map> 
